@@ -28,7 +28,7 @@ export function ProjectsSection() {
   return (
     <motion.section
       id="projects"
-      className="relative flex flex-col w-screen pt-[5vh] px-[10vw] snap-center lg:pt-[clamp(2rem,5vh,5rem)] lg:pl-[15vw] lg:pr-[10vw] pb-[15vh]"
+      className="snap-section relative flex flex-col w-screen pt-[5vh] px-[10vw] lg:pt-[clamp(2rem,5vh,5rem)] lg:pl-[15vw] lg:pr-[10vw] pb-[15vh]"
       initial={{ opacity: 0, filter: 'blur(1px)' }}
       whileInView={{ opacity: 1, filter: 'blur(0px)' }}
       viewport={{ once: true, amount: 0.3 }}

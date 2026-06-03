@@ -1,33 +1,39 @@
 import { motion } from 'framer-motion'
+import { useActiveSection } from '../hooks/useActiveSection'
 import { useStore } from '../store/useStore'
 
 const links = [
-  { title: 'HOME', href: '#home' },
-  { title: 'EDUCATION', href: '#education' },
-  { title: 'SKILLS', href: '#skills' },
-  { title: 'PROJECTS', href: '#projects' },
+  { title: 'HOME', href: '#home', id: 'home' },
+  { title: 'EDUCATION', href: '#education', id: 'education' },
+  { title: 'SKILLS', href: '#skills', id: 'skills' },
+  { title: 'PROJECTS', href: '#projects', id: 'projects' },
 ]
 
-function NavLink({ title, href }) {
+function NavLink({ title, href, isActive }) {
   const theme = useStore((s) => s.theme)
   const setCursorType = useStore((s) => s.setCursorType)
 
   return (
     <a
       href={href}
-      className={`group lg:w-[clamp(3.5rem,7vw,10rem)] relative text-[clamp(0.4rem,2vw,1.5rem)] md:text-[clamp(0.8rem,1vw,1.5rem)] tracking-widest font-light transition-colors duration-500 ${
-        theme === 'dark'
-          ? 'text-[#ffffff77] hover:text-white'
-          : 'text-[#888888aa] font-medium hover:text-[#101010cc]'
+      className={`group lg:w-[clamp(3.5rem,7vw,10rem)] relative text-[clamp(0.4rem,2vw,1.5rem)] md:text-[clamp(0.8rem,1vw,1.5rem)] tracking-widest transition-colors duration-500 ${
+        isActive
+          ? theme === 'dark'
+            ? 'text-white font-medium'
+            : 'text-[#101010cc] font-medium'
+          : theme === 'dark'
+            ? 'text-[#ffffff77] font-light hover:text-white'
+            : 'text-[#888888aa] font-medium hover:text-[#101010cc]'
       }`}
       onMouseEnter={() => setCursorType('hover')}
       onMouseLeave={() => setCursorType('default')}
+      aria-current={isActive ? 'page' : undefined}
     >
       {title}
       <span
-        className={`hidden lg:block lg:absolute lg:bottom-0 lg:left-0 lg:h-[0.5px] lg:w-0 lg:transition-all lg:duration-500 lg:ease-out lg:group-hover:w-full ${
-          theme === 'dark' ? 'lg:bg-white' : 'lg:bg-[#101010cc]'
-        }`}
+        className={`hidden lg:block lg:absolute lg:bottom-0 lg:left-0 lg:h-[0.5px] lg:transition-all lg:duration-500 lg:ease-out ${
+          isActive ? 'lg:w-full' : 'lg:w-0 lg:group-hover:w-full'
+        } ${theme === 'dark' ? 'lg:bg-white' : 'lg:bg-[#101010cc]'}`}
       />
     </a>
   )
@@ -81,8 +87,9 @@ function ContactLinks() {
   )
 }
 
-export function Nav() {
+export function Nav({ scrollRootRef }) {
   const theme = useStore((s) => s.theme)
+  const activeSection = useActiveSection(scrollRootRef)
 
   return (
     <div className="fixed top-0 left-0 lg:top-[12vh] lg:left-[3vw] z-50">
@@ -96,7 +103,11 @@ export function Nav() {
       >
         <div className="flex flex-row items-center gap-5">
           {links.map((link) => (
-            <NavLink key={link.href} {...link} />
+            <NavLink
+              key={link.href}
+              {...link}
+              isActive={activeSection === link.id}
+            />
           ))}
         </div>
         <ContactLinks />
@@ -109,7 +120,11 @@ export function Nav() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         {links.map((link) => (
-          <NavLink key={link.href} {...link} />
+          <NavLink
+            key={link.href}
+            {...link}
+            isActive={activeSection === link.id}
+          />
         ))}
         <DesktopContactLinks />
       </motion.div>

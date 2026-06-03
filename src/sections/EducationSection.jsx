@@ -5,7 +5,7 @@ export function EducationSection() {
   return (
     <motion.section
       id="education"
-      className="relative w-screen pt-[5vh] pl-[10vw] lg:pt-[clamp(5rem,15vh,10rem)] lg:pl-[15vw] flex flex-col lg:flex-row lg:items-center lg:gap-[10vw] snap-center min-h-screen"
+      className="snap-section relative w-screen pt-[5vh] pl-[10vw] lg:pt-[clamp(5rem,15vh,10rem)] lg:pl-[15vw] flex flex-col lg:flex-row lg:items-center lg:gap-[10vw]"
       initial={{ opacity: 0, filter: 'blur(1px)' }}
       whileInView={{ opacity: 1, filter: 'blur(0px)' }}
       viewport={{ once: true, amount: 0.5 }}

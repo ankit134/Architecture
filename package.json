@@ -1,7 +1,7 @@
 {
   "name": "adarsha-sapkota-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "homepage": "https://github.com/ankit134/Architecture",
   "scripts": {
@@ -11,12 +11,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.6.1",
     "framer-motion": "^12.40.0",
-    "lenis": "^1.3.23",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "three": "^0.184.0",
     "zustand": "^5.0.14"
   },
   "devDependencies": {

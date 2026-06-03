@@ -23,7 +23,7 @@ export function HeroSection() {
   return (
     <motion.section
       id="home"
-      className="relative w-screen pt-[17.5vh] pl-[10vw] flex flex-col lg:pt-[15vh] lg:pl-[15vw] lg:flex-row lg:items-center lg:gap-[10vw] snap-center min-h-screen"
+      className="snap-section relative w-screen pt-[17.5vh] pl-[10vw] flex flex-col lg:pt-[15vh] lg:pl-[15vw] lg:flex-row lg:items-center lg:gap-[10vw]"
       initial={{ opacity: 0, filter: 'blur(1px)' }}
       whileInView={{ opacity: 1, filter: 'blur(0px)' }}
       viewport={{ once: true, amount: 0.3 }}
