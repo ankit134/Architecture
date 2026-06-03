@@ -26,6 +26,16 @@ npm run preview
 
 Deploy the `dist/` folder. GitHub Pages workflow is configured in `.github/workflows/deploy.yml` (base path `/Architecture/`).
 
+### Custom assets
+
+| File | Purpose |
+|------|---------|
+| `public/profile-photo.jpg` | Home hero circular avatar |
+| `public/favicon.svg` | Browser tab icon (letter **A**) |
+| `public/apple-touch-icon.svg` | iOS home-screen icon |
+
+Push to `main` to deploy: **https://ankit134.github.io/Architecture/**
+
 ## Stack
 
 - React 19 + Vite 8

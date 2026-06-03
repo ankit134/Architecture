@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { heroVariants } from '../animations/variants'
+import { PortraitImage } from '../components/PortraitImage'
 import { SplitText } from '../components/SplitText'
 import { profile, aboutParagraphs } from '../data/portfolio'
 import { useStore } from '../store/useStore'
@@ -10,6 +11,7 @@ function EmailLink() {
   return (
     <a
       href={`mailto:${profile.email}`}
+      className="transition-opacity duration-500 hover:opacity-75"
       aria-label="Send an email to Adarsha Sapkota"
       onMouseEnter={() => setCursorType('hover')}
       onMouseLeave={() => setCursorType('default')}
@@ -49,7 +51,7 @@ export function HeroSection() {
               />
             </h1>
           </div>
-          <div className="text-[clamp(0.8rem,1.2vw,1.5rem)] pl-1 lg:pl-2">
+          <div className="text-[clamp(0.8rem,1.2vw,1.5rem)] pl-1 lg:pl-2 tracking-wide">
             {profile.role}
           </div>
         </div>
@@ -62,15 +64,19 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="lg:h-[clamp(20rem,60vh,40rem)] flex flex-col items-start justify-end mt-[10vh] lg:mt-0">
-        <div className="h-[10vh] lg:h-[15vh] flex items-end text-[clamp(1rem,1.5vw,2rem)] font-light mb-1">
-          <h2>ABOUT ME</h2>
-        </div>
-        <div className="w-[80vw] lg:w-[35vw] h-[1px] bg-[#888888aa]" />
-        <div className="w-[80vw] lg:w-[35vw] flex flex-col pt-[5vh] lg:pt-[clamp(1rem,7.5vh,3rem)] text-[clamp(0.7rem,1vw,1.2rem)] tracking-[0.1rem] font-light gap-1 leading-[clamp(1.1rem,3vh,1.4rem)]">
-          {aboutParagraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+      <div className="w-[80vw] lg:w-[35vw] lg:h-[clamp(20rem,60vh,40rem)] flex flex-col items-start justify-end mt-[10vh] lg:mt-0 gap-[5vh]">
+        <PortraitImage variant="hero" className="mb-[1vh]" />
+
+        <div className="w-full flex flex-col items-start justify-end">
+          <div className="h-[8vh] lg:h-[10vh] flex items-end text-[clamp(1rem,1.5vw,2rem)] font-light mb-1">
+            <h2>ABOUT ME</h2>
+          </div>
+          <div className="w-full h-[1px] bg-[#888888aa]" />
+          <div className="w-full flex flex-col pt-[4vh] lg:pt-[clamp(1rem,5vh,2.5rem)] text-[clamp(0.7rem,1vw,1.2rem)] tracking-[0.1rem] font-light gap-1 leading-[clamp(1.1rem,3vh,1.4rem)]">
+            {aboutParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </div>
     </motion.section>

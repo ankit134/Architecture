@@ -5,6 +5,10 @@ export const profile = {
   email: '00adarshasapkota@gmail.com',
   phone: '+977 9848666317',
   location: 'Kritipur, Tanglaphat, Kathmandu',
+  portraitAlt: 'Adarsha Sapkota',
+  portraitSrc: `${import.meta.env.BASE_URL}profile-photo.jpg`,
+  portraitWidth: 1024,
+  portraitHeight: 1020,
 }
 
 export const aboutParagraphs = [

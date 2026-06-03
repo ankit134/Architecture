@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none" role="img" aria-label="Adarsha Sapkota">
+  <rect width="180" height="180" rx="40" fill="#101010"/>
+  <path
+    fill="#ffffff"
+    fill-rule="evenodd"
+    d="M48 132V48h19l29 62 29-62h19v84h-16V78l-25 54h-13l-25-54v54H48z"
+    clip-rule="evenodd"
+  />
+</svg>

@@ -5,18 +5,18 @@ export function EducationSection() {
   return (
     <motion.section
       id="education"
-      className="snap-section relative w-screen pt-[5vh] pl-[10vw] lg:pt-[clamp(5rem,15vh,10rem)] lg:pl-[15vw] flex flex-col lg:flex-row lg:items-center lg:gap-[10vw]"
+      className="snap-section relative w-screen pt-[5vh] pl-[10vw] lg:pt-[clamp(5rem,15vh,10rem)] lg:pl-[15vw] lg:pr-[10vw]"
       initial={{ opacity: 0, filter: 'blur(1px)' }}
       whileInView={{ opacity: 1, filter: 'blur(0px)' }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 1.2, ease: 'easeOut' }}
     >
-      <div className="lg:h-[clamp(20rem,60vh,40rem)] flex flex-col items-start justify-start w-full">
+      <div className="w-[80vw] lg:w-[75vw] flex flex-col items-start justify-start">
         <div className="h-[15vh] flex items-end text-[clamp(1rem,1.5vw,2rem)] font-light mb-1">
           <h2>ACADEMIC QUALIFICATIONS</h2>
         </div>
-        <div className="w-[80vw] lg:w-[75vw] h-[1px] bg-[#888888aa]" />
-        <div className="w-[80vw] lg:w-[75vw] flex flex-col pt-[5vh] lg:pt-[clamp(1rem,7.5vh,3rem)] gap-[5vh]">
+        <div className="w-full h-[1px] bg-[#888888aa]" />
+        <div className="w-full flex flex-col pt-[5vh] lg:pt-[clamp(1rem,7.5vh,3rem)] gap-[5vh] lg:gap-[6vh]">
           {education.map((item) => (
             <article
               key={item.title}
